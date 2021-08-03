@@ -1,1 +1,29 @@
-<p>post-edit works!</p>
+<div class="row">
+  <div class="col-md-6"></div>
+  <h3 *ngIf="editMode === false">Add post</h3>
+  <h3 *ngIf="editMode === true">Edit post</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Title</label>
+      <input class="form-control" type="text" formControlName="title" />
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        class="form-control"
+        type="text"
+        formControlName="description"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label>Image Path</label>
+      <input class="form-control" type="text" formControlName="imagePath" />
+      <img class="img-responsive" src="{{ form.value.imagePath }}" />
+    </div>
+    <button class="btn btn-success" type="submit" [disabled]="form.invalid">
+      Save
+    </button>
+    |
+    <button class="btn btn-primary" type="reset">Clear</button>
+  </form>
+</div>
