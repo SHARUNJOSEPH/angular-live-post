@@ -1,7 +1,8 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from './post.model';
 import { PostService } from './post.service';
+import { tap } from 'rxjs/operators';
 
 //  https://live-posts-90339-default-rtdb.firebaseio.com/
 
@@ -22,4 +23,19 @@ export class BackEndService {
       });
   }
   // fun-2 - fetch
+  fetchData() {
+    //fetch the data from the data base
+    this.http
+      .get<Post[]>(
+        'https://live-posts-90339-default-rtdb.firebaseio.com/post.json'
+      )
+      .pipe(
+        tap((listOfPosts: Post[]) => {
+          console.log(listOfPosts);
+
+          //put the fetch data to the post-service
+        })
+      )
+      .subscribe();
+  }
 }
