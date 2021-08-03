@@ -19,7 +19,7 @@ export class BackEndService {
         listOfPosts
       )
       .subscribe((res) => {
-        console.log(res);
+        //  console.log(res);
       });
   }
   // fun-2 - fetch
