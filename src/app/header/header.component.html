@@ -25,6 +25,16 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
+          <a style="cursor: pointer" (click)="onSave()"
+            ><span class="glyphicon glyphicon-floppy-disk"></span> Save</a
+          >
+        </li>
+        <li>
+          <a style="cursor: pointer"
+            ><span class="glyphicon glyphicon-download-alt"></span> Fetch</a
+          >
+        </li>
+        <li>
           <a routerLink="/auth"
             ><span class="glyphicon glyphicon-user"></span> Sign Up</a
           >

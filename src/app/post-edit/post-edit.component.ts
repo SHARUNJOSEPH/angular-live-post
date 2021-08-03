@@ -51,17 +51,23 @@ export class PostEditComponent implements OnInit {
     const title = this.form.value.title;
     const description = this.form.value.description;
     const imagePath = this.form.value.imagePath;
+
     //redy with the object
     const post: Post = new Post(
       title,
       description,
       imagePath,
       'test@test.com',
-      new Date()
+      new Date(),
+      0
     );
 
     //calling service
-    this.postService.addPost(post);
+    if (this.editMode) {
+      this.postService.updatePost(this.index, post);
+    } else {
+      this.postService.addPost(post);
+    }
 
     //nav to ppost-list
     this.router.navigate(['/post-list']);
