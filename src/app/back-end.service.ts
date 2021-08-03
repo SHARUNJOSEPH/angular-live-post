@@ -34,6 +34,7 @@ export class BackEndService {
           console.log(listOfPosts);
 
           //put the fetch data to the post-service
+          this.postService.setPosts(listOfPosts);
         })
       )
       .subscribe();

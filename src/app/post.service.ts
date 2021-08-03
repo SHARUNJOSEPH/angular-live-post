@@ -38,7 +38,7 @@ export class PostService {
     ),
   ];
 
-  //current post 1
+  //current post -1
   getPost() {
     return this.listOfPost;
   }
@@ -64,5 +64,9 @@ export class PostService {
   //post-like 6
   likePost(index: number) {
     this.listOfPost[index].numberOfLikes += 1;
+  }
+  //replace with the new downloded data 7
+  setPosts(listOfPosts: Post[]) {
+    this.listOfPost = listOfPosts;
   }
 }
