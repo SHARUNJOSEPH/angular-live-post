@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Post } from './post.model';
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
+  listChangedEvents: EventEmitter<Post[]> = new EventEmitter();
   listOfPost: Post[] = [
     new Post(
       'Nature',
@@ -68,5 +69,6 @@ export class PostService {
   //replace with the new downloded data 7
   setPosts(listOfPosts: Post[]) {
     this.listOfPost = listOfPosts;
+    this.listChangedEvents.emit(listOfPosts);
   }
 }
